@@ -105,7 +105,7 @@ def main():
                             parentDict[neighbor] = curr
                             finalDist[neighbor] = distancedict[neighbor] + manhattanDistance(neighbor,destNode)
             visited.add(curr)
-            min_ = 9999999
+            min_ = float('inf')
             for node in distancedict: #get the smallest val in dictionary
                 if node not in visited:
                     if finalDist[node] < min_:
