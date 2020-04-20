@@ -63,6 +63,28 @@ class TopSort:
             if node not in visited:
                 self.mDFSHelper(node, visited, stack)
         stack.append(n)
+    
+    def mDFSIter(self, graph:DirectedGraph)-> List[newNode]: 
+        listNodes = graph.getAllNodes()
+        start = next(iter(listNodes))
+        visited = set()
+        stack = []
+        for node in listNodes:
+
+            if node not in visited:
+                visited.append(node)
+                listNodes = node.adjList
+                if len(listNodes) == 0:
+                    stack.append(node)
+                else:
+                    while len(listNodes) > 0:
+                        for n in listNodes:
+                            if node not in visited:
+                                visited.append(node)
+                                listNodes = node.adjList
+                    stack.append(node)
+        stack.reverse()
+        return stack
 
 def main():
     
